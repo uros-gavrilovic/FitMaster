@@ -13,21 +13,27 @@ import java.util.List;
 public interface PackageRepository extends JpaRepository<PackageEntity, Long> {
 	PackageEntity getByPackageID(Long id);
 
-	@Procedure(procedureName = "create_package", outputParameterName = "p_package_id")
-	Long createProcedure(
-			@Param("p_name") String name,
-			@Param("p_duration") Integer duration,
-			@Param("p_price") BigDecimal price,
-			@Param("p_currency") String currency
+	@Query(
+			value = "CALL create_package(:name, :duration, :price, :currency, null)",
+			nativeQuery = true
+	)
+	Object createProcedure(
+			@Param("name") String name,
+			@Param("duration") Integer duration,
+			@Param("price") BigDecimal price,
+			@Param("currency") String currency
 	);
 
-	@Procedure(procedureName = "update_package", outputParameterName = "o_package_id")
-	Long updateProcedure(
-			@Param("p_package_id") Long id,
-			@Param("p_name") String name,
-			@Param("p_duration") Integer duration,
-			@Param("p_price") BigDecimal price,
-			@Param("p_currency") String currency
+	@Query(
+			value = "CALL update_package(:package_id, :name, :duration, :price, :currency, null)",
+			nativeQuery = true
+	)
+	Object updateProcedure(
+			@Param("package_id") Long id,
+			@Param("name") String name,
+			@Param("duration") Integer duration,
+			@Param("price") BigDecimal price,
+			@Param("currency") String currency
 	);
 
 	@Procedure(procedureName = "delete_package", outputParameterName = "o_package_id")
