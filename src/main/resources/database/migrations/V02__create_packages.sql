@@ -7,4 +7,13 @@ CREATE TABLE IF NOT EXISTS package
     currency VARCHAR(3) NOT NULL DEFAULT 'RSD',
 
     CONSTRAINT pk_package PRIMARY KEY (id)
-);
+    );
+
+DROP TYPE IF EXISTS package_dto CASCADE;
+CREATE TYPE package_dto AS (
+    id BIGINT,
+    name VARCHAR(255),
+    duration INTEGER,
+    price DECIMAL,
+    currency VARCHAR(3)
+    );

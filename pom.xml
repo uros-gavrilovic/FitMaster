@@ -131,6 +131,12 @@
             <version>1.4.8</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>19.0.0</version>
+        </dependency>
+
 <!--        TEST-->
         <dependency>
             <groupId>com.h2database</groupId>

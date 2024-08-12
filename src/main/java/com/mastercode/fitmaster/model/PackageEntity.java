@@ -2,7 +2,6 @@ package com.mastercode.fitmaster.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.util.Currency;
 

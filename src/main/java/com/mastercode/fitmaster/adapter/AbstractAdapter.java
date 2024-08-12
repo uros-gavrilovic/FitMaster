@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class AbstractAdapter<T, TDTO> {
-//    public abstract T dtoToEntity(TDTO dto);
 
     public abstract TDTO entityToDTO(T entity);
 

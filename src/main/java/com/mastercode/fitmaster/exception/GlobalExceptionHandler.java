@@ -86,7 +86,27 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handlePackageHasActiveMembershipsException(PackageHasActiveMembershipsException ex) {
         return generateResponse(
             ex,
-            HttpStatus.FORBIDDEN,
+            ex.getHttpStatus(),
+            ex.getTitle(),
+            ex.getMessage()
+        );
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleCustomProcedureMapperException(CustomProcedureMapperException ex) {
+        return generateResponse(
+            ex,
+            ex.getHttpStatus(),
+            ex.getTitle(),
+            ex.getMessage()
+        );
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleEntityNotFoundException(EntityNotFoundException ex) {
+        return generateResponse(
+            ex,
+            ex.getHttpStatus(),
             ex.getTitle(),
             ex.getMessage()
         );
